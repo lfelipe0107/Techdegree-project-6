@@ -72,19 +72,17 @@ function checkWin(){
 
 letters.addEventListener('click', (e) => {
     const button = e.target;
-    if (button.tagName === 'BUTTON'){
+    if (button.tagName === 'BUTTON') {
         button.classList.add('chosen');
-    }
-    let letterFound = checkLetter(button)
-    if (letterFound != null){
-        missed++;
-        console.log(missed);
-        const heart = document.querySelector('.tries');
-        heart.remove();
+        button.disabled = true;
+    
+        let letterFound = checkLetter(button)
+        if (letterFound != null) {
+          missed++;
+          console.log(missed);
+          const heart = document.querySelector('.tries');
+          heart.remove();
+        }
     }
     checkWin();
-});
-
-function resetGame(){
-    reload();
-}
+ });
